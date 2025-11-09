@@ -96,3 +96,42 @@ cor.test(NB_combined@meta.data[["ADRN_PMID286_all1"]], NB_combined@meta.data[["M
 save_path_rds <- paste0(output_dir, 'NB_combined_signatures.rds')
 saveRDS(NB_combined, save_path_rds)
 print(paste0("Signature score calculation complete. Object saved to: ", save_path_rds))
+
+
+# --- KS TEST ---
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNBE2C_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNBE2C_ctrl")])
+#D = 0.2881, p-value < 2.2e-16
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNDZ_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNDZ_ctrl")])
+#D = 0.086633, p-value = 2.997e-06
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNSH_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SKNSH_ctrl")])
+#D = 0.027279, p-value = 0.4813
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_N_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_N_ctrl")])
+#D = 0.12749, p-value = 0.0007798
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_S_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_S_ctrl")])
+#D = 0.23954, p-value = 2.47e-12
+ks.test(NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line4 %in% c("SHSY5Y_treat")],
+        NB_combined@meta.data[["signature_1PMID286_MES_all"]][NB_combined$cell_line4 %in% c("SHSY5Y_ctrl")])
+#D = 0.25135, p-value < 2.2e-16
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNBE2C_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNBE2C_ctrl")])
+#D = 0.17391, p-value < 2.2e-16
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNDZ_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNDZ_ctrl")])
+#D = 0.21672, p-value < 2.2e-16
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNSH_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SKNSH_ctrl")])
+#D = 0.34784, p-value < 2.2e-16
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_N_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_N_ctrl")])
+#D = 0.24526, p-value = 4.835e-13
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_S_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line5 %in% c("SHSY5Y_S_ctrl")])
+#D = 0.17445, p-value = 9.666e-07
+ks.test(NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line4 %in% c("SHSY5Y_treat")],
+        NB_combined@meta.data[["signature_1PMID286_ADRN_all"]][NB_combined$cell_line4 %in% c("SHSY5Y_ctrl")])
+#D = 0.22288, p-value < 2.2e-16
