@@ -1,4 +1,4 @@
-
+input_dir <- "results/integration/"
 # --- CELL LINE ANNOTATION VIA BULK CORRELATION ---
 # NOTE: Bulk data file is assumed to be accessible via the GEO accession used in the original code.
 # The user needs to download this file and place it in the annotation directory.
@@ -12,7 +12,7 @@ NB_cellline <- NB_cellline %>%
 NB_cellline <- log2(NB_cellline + 1) # Log2 transformation
 
 # Calculate average expression for each scRNA cluster (using SCT assay)
-NB.combined <- readRDS(paste0(output_dir, "NBcell_combined.rds"))
+NB.combined <- readRDS(paste0(input_dir, "NBcell_combined.rds"))
 DefaultAssay(NB.combined) <- "SCT"
 cellLine.avg <- AverageExpression(NB.combined, assays = 'SCT', slot = 'data')[['SCT']]
 
