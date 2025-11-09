@@ -1,3 +1,13 @@
+library(Signac)
+library(Seurat)
+library(SeuratDisk)
+library(SeuratData)
+library(ggplot2)
+library(patchwork)
+library(pheatmap) # Added for correlation visualization
+library(dplyr)    # For data manipulation
+library(cowplot)  # For plotting
+
 input_dir <- "results/integration/"
 # --- CELL LINE ANNOTATION VIA BULK CORRELATION ---
 # NOTE: Bulk data file is assumed to be accessible via the GEO accession used in the original code.
