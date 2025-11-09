@@ -1,4 +1,4 @@
-# Script 2: Single-Batch Multiome Preprocessing (Batch 0602)
+# Script 1: Single-Batch Multiome Preprocessing (Batch 0602)
 # Reference: https://satijalab.org/signac/articles/pbmc_multiomic.html
 
 library(Signac)
