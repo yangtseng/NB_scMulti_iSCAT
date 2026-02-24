@@ -19,7 +19,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=100)','ATRA\n(n=156)
   scale_fill_manual(values = c( '#C44943', '#D38681')) +
   geom_signif(comparisons = list(c('Control\n(n=100)','ATRA\n(n=156)')), 
               annotations = "**", textsize = 10, size = 0.8, vjust = .5, 
-              y_position = 2.55) +
+              y_position = 2.54) +
   annotate("text", x = 1, y = 2.5, label = "2.01 ± 0.09", size = 5) +
   annotate("text", x = 2, y = 2.5, label = "2.13 ± 0.12", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
@@ -33,7 +33,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=100)','ATRA\n(n=156)
         axis.ticks = element_line(size = 0.9),
         legend.title = element_text(size = 16), legend.text = element_text(size = 15),
         legend.position = "None") +
-  coord_cartesian(ylim=c(1.7, 2.65)) + 
+  coord_cartesian(ylim=c(1.7, 2.6)) + 
   scale_y_continuous(breaks = c(1.8, 2, 2.2,2.4))
 
 png('fig6a.png',
@@ -57,10 +57,10 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=32)','ATRA\n(n=34)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#F3C064','#F6DB88')) +
   geom_signif(comparisons = list(c("Control\n(n=32)", "ATRA\n(n=34)")), 
-              annotations = "**", textsize = 7, size = 0.8, vjust = .5, 
-              y_position = 2.25) +
-  annotate("text", x = 1, y = 2.22, label = "2.02 ± 0.08", size = 5) +
-  annotate("text", x = 2, y = 2.22, label = "1.89 ± 0.08", size = 5) +
+              annotations = "**", textsize = 10, size = 0.8, vjust = .5, 
+              y_position = 2.255) +
+  annotate("text", x = 1, y = 2.23, label = "2.02 ± 0.08", size = 5) +
+  annotate("text", x = 2, y = 2.23, label = "1.89 ± 0.08", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
   theme(text = element_text(family = 'Arial'),
         axis.text.x = element_text(size = 18, color = 'black', vjust = 1), 
@@ -72,7 +72,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=32)','ATRA\n(n=34)')
         axis.ticks = element_line(size = 0.9),
         legend.title = element_text(size = 16), legend.text = element_text(size = 15),
         legend.position = "None") +
-  coord_cartesian(ylim=c(1.7, 2.35)) + 
+  coord_cartesian(ylim=c(1.7, 2.3)) + 
   scale_y_continuous(breaks = c(1.8, 2, 2.2))
 
 png('fig6b.png',
@@ -96,8 +96,8 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=40)','ATRA\n(n=40)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#4874A7','#8CADCF')) +
   geom_signif(comparisons = list(c("Control\n(n=40)", "ATRA\n(n=40)")), 
-              annotations = "**", textsize = 7, size = 0.8, vjust = .5, 
-              y_position = 2.27) +
+              annotations = "n.s.", textsize = 5, size = 0.8, vjust = -.2, 
+              y_position = 2.265) +
   annotate("text", x = 1, y = 2.25, label = "2.04 ± 0.05", size = 5) +
   annotate("text", x = 2, y = 2.25, label = "2.08 ± 0.06", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
@@ -111,7 +111,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=40)','ATRA\n(n=40)')
         axis.ticks = element_line(size = 0.9),
         legend.title = element_text(size = 16), legend.text = element_text(size = 15),
         legend.position = "None") +
-  coord_cartesian(ylim=c(1.95, 2.3)) + 
+  coord_cartesian(ylim=c(1.95, 2.29)) + 
   scale_y_continuous(breaks = c(2,2.1, 2.2))
 
 png('fig6c.png',
@@ -135,7 +135,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=45)','ATRA\n(n=45)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#4B7C59','#85B69E')) +
   geom_signif(comparisons = list(c("Control\n(n=45)", "ATRA\n(n=45)")), 
-              annotations = "n.s.", textsize = 7, size = 0.8, vjust = -.2, 
+              annotations = "n.s.", textsize = 5, size = 0.8, vjust = -.2, 
               y_position = 2.2) +
   annotate("text", x = 1, y = 2.18, label = "2.01 ± 0.07", size = 5) +
   annotate("text", x = 2, y = 2.18, label = "1.98 ± 0.07", size = 5) +
