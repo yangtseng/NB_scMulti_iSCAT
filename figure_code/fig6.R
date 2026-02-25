@@ -7,6 +7,7 @@ library(ggsignif)
 set.seed(1234)
 ### Boxplot
 SY5Y_iSCAT <- read.table("~/Desktop/SY5Y_iSCAT.txt", header = T)
+wilcox.test(SY5Y_iSCAT$ATRA_20uM, SY5Y_iSCAT$control)
 df <- data.frame(data1 = c(SY5Y_iSCAT$control, SY5Y_iSCAT$ATRA_20uM),
                  data2 = c(rep("Control\n(n=100)", 156), rep("ATRA\n(n=156)", 156)))
 df <- na.omit(df)
@@ -18,16 +19,15 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=100)','ATRA\n(n=156)
              position=position_dodge2(width=0.7), size = 1.5) + 
   scale_fill_manual(values = c( '#C44943', '#D38681')) +
   geom_signif(comparisons = list(c('Control\n(n=100)','ATRA\n(n=156)')), 
-              annotations = "**", textsize = 10, size = 0.8, vjust = .5, 
-              y_position = 2.54) +
-  annotate("text", x = 1, y = 2.5, label = "2.01 ± 0.09", size = 5) +
-  annotate("text", x = 2, y = 2.5, label = "2.13 ± 0.12", size = 5) +
+              annotations = "***", textsize = 10, size = 0.8, vjust = .5, 
+              y_position = 2.44) +
+  annotate("text", x = 1.5, y = 2.6, label = "Δ = 0.12", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
   theme(text = element_text(family = 'Arial'),
         axis.text.x = element_text(size = 18, color = 'black', vjust = 1), 
         axis.text.y = element_text(size = 20, color = 'black'),
         axis.title.x = element_text(size = 20, vjust = -1), 
-        axis.title.y = element_text(size = 20, vjust = 2, hjust = .1),
+        axis.title.y = element_text(size = 20, vjust = 2, hjust = .2),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.line = element_line(size = 0.9),
         axis.ticks = element_line(size = 0.9),
@@ -46,6 +46,7 @@ dev.off()
 
 ### Boxplot
 BE_iSCAT <- read.table("~/Desktop/BE_iSCAT.txt", header = T)
+wilcox.test(BE_iSCAT$ATRA_20uM, BE_iSCAT$control)
 df <- data.frame(data1 = c(BE_iSCAT$control, BE_iSCAT$ATRA_20uM),
                  data2 = c(rep("Control\n(n=32)", 34), rep("ATRA\n(n=34)", 34)))
 
@@ -57,16 +58,15 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=32)','ATRA\n(n=34)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#F3C064','#F6DB88')) +
   geom_signif(comparisons = list(c("Control\n(n=32)", "ATRA\n(n=34)")), 
-              annotations = "**", textsize = 10, size = 0.8, vjust = .5, 
-              y_position = 2.255) +
-  annotate("text", x = 1, y = 2.23, label = "2.02 ± 0.08", size = 5) +
-  annotate("text", x = 2, y = 2.23, label = "1.89 ± 0.08", size = 5) +
+              annotations = "***", textsize = 10, size = 0.8, vjust = .5, 
+              y_position = 2.2) +
+  annotate("text", x = 1.5, y = 2.3, label = "Δ = -0.13", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
   theme(text = element_text(family = 'Arial'),
         axis.text.x = element_text(size = 18, color = 'black', vjust = 1), 
         axis.text.y = element_text(size = 20, color = 'black'),
         axis.title.x = element_text(size = 20, vjust = -1), 
-        axis.title.y = element_text(size = 20, vjust = 2, hjust = .2),
+        axis.title.y = element_text(size = 20, vjust = 2, hjust = .4),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.line = element_line(size = 0.9),
         axis.ticks = element_line(size = 0.9),
@@ -85,6 +85,7 @@ dev.off()
 
 ### Boxplot
 DZ_iSCAT <- read.table("~/Desktop/DZ_iSCAT.txt", header = T)
+wilcox.test(DZ_iSCAT$ATRA_20uM, DZ_iSCAT$control)
 df <- data.frame(data1 = c(DZ_iSCAT$control, DZ_iSCAT$ATRA_20uM),
                  data2 = c(rep("Control\n(n=40)", 40), rep("ATRA\n(n=40)", 40)))
 
@@ -96,22 +97,21 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=40)','ATRA\n(n=40)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#4874A7','#8CADCF')) +
   geom_signif(comparisons = list(c("Control\n(n=40)", "ATRA\n(n=40)")), 
-              annotations = "n.s.", textsize = 5, size = 0.8, vjust = -.2, 
-              y_position = 2.265) +
-  annotate("text", x = 1, y = 2.25, label = "2.04 ± 0.05", size = 5) +
-  annotate("text", x = 2, y = 2.25, label = "2.08 ± 0.06", size = 5) +
+              annotations = "**", textsize = 10, size = 0.8, vjust = .5, 
+              y_position = 2.21) +
+  annotate("text", x = 1.5, y = 2.27, label = "Δ = 0.04", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
   theme(text = element_text(family = 'Arial'),
         axis.text.x = element_text(size = 18, color = 'black', vjust = 1), 
         axis.text.y = element_text(size = 20, color = 'black'),
         axis.title.x = element_text(size = 20, vjust = -1), 
-        axis.title.y = element_text(size = 20, vjust = 2, hjust = .1),
+        axis.title.y = element_text(size = 20, vjust = 2, hjust = .3),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         axis.line = element_line(size = 0.9),
         axis.ticks = element_line(size = 0.9),
         legend.title = element_text(size = 16), legend.text = element_text(size = 15),
         legend.position = "None") +
-  coord_cartesian(ylim=c(1.95, 2.29)) + 
+  coord_cartesian(ylim=c(1.95, 2.27)) + 
   scale_y_continuous(breaks = c(2,2.1, 2.2))
 
 png('fig6c.png',
@@ -124,6 +124,7 @@ dev.off()
 
 ### Boxplot
 SH_iSCAT <- read.table("~/Desktop/SH_iSCAT.txt", header = T)
+wilcox.test(SH_iSCAT$ATRA_20uM, SH_iSCAT$control)
 df <- data.frame(data1 = c(SH_iSCAT$control, SH_iSCAT$ATRA_20uM),
                  data2 = c(rep("Control\n(n=45)", 45), rep("ATRA\n(n=45)", 45)))
 
@@ -135,10 +136,9 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=45)','ATRA\n(n=45)')
              position=position_dodge2(width=0.7), size = 2) + 
   scale_fill_manual(values = c('#4B7C59','#85B69E')) +
   geom_signif(comparisons = list(c("Control\n(n=45)", "ATRA\n(n=45)")), 
-              annotations = "n.s.", textsize = 5, size = 0.8, vjust = -.2, 
-              y_position = 2.2) +
-  annotate("text", x = 1, y = 2.18, label = "2.01 ± 0.07", size = 5) +
-  annotate("text", x = 2, y = 2.18, label = "1.98 ± 0.07", size = 5) +
+              annotations = "*", textsize = 10, size = 0.8, vjust = .5, 
+              y_position = 2.15) +
+  annotate("text", x = 1.5, y = 2.22, label = "Δ = -0.03", size = 5) +
   theme_classic() + ylab('Condensation level') + xlab('') +
   theme(text = element_text(family = 'Arial'),
         axis.text.x = element_text(size = 18, color = 'black', vjust = 1), 
@@ -150,7 +150,7 @@ p <- ggplot(df, aes(x=factor(group, levels = c('Control\n(n=45)','ATRA\n(n=45)')
         axis.ticks = element_line(size = 0.9),
         legend.title = element_text(size = 16), legend.text = element_text(size = 15),
         legend.position = "None") +
-  coord_cartesian(ylim=c(1.83, 2.23)) + 
+  coord_cartesian(ylim=c(1.83, 2.22)) + 
   scale_y_continuous(breaks = c(1.9,2, 2.1))
 
 png('fig6d.png',
