@@ -79,8 +79,21 @@ gene.sets.286.MES <- list(c(MES_286))
 NB_combined <- AddModuleScore_UCell(NB_combined, features = gene.sets.286.ADRN, name="PMID286_ADRN")
 NB_combined <- AddModuleScore_UCell(NB_combined, features = gene.sets.286.MES, name="PMID286_MES")
 
+sesoi_table <- NB_combined@meta.data %>%
+  group_by(cell_line_prefix) %>%
+  summarise(
+    mean_count = mean(PMID286_MES_all, na.rm = TRUE),
+    sd_count   = sd(PMID286_MES_all, na.rm = TRUE),
+    sample_size = n()
+  ) %>%
+  mutate(SESOI = 0.5 * sd_count)
 
-# --- CORRELATION ANALYSIS (PMID:286 vs PMID:286) ---
+# 2. Calculate the Global Pooled SD (Recommended for general benchmarking)
+# This calculates the square root of the average within-group variance
+pooled_sd <- sqrt(sum((sesoi_table$sample_size - 1) * sesoi_table$sd_count^2) / 
+                    sum(sesoi_table$sample_size - 1))
+
+global_sesoi <- 0.5 * pooled_sd# --- CORRELATION ANALYSIS (PMID:286 vs PMID:286) ---
 # Correlate the two lists (original vs. expanded) for verification
 print("Correlation between original and expanded PMID:286 ADRN scores:")
 cor.test(NB_combined@meta.data[["ADRN_PMID286_all1"]], NB_combined@meta.data[["ADRN_PMID2861"]])
