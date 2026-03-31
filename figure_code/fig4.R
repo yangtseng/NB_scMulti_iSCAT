@@ -39,6 +39,10 @@ VlnPlot(NB_combined_250617, features = c("signature_1PMID286_MES_all"), pt.size 
               y_position = c(0.35, 0.28,0.28,0.25), test = 'wilcox.test',
               textsize = 5, size = 0.8, vjust = -.1) + 
   theme_classic() + ylab("MES signature \n gene score") + xlab("") + ggtitle("") + NoLegend() +
+  annotate("text", x = 1.5, y = .39, label = "Δ = -0.0176", size = 5) +
+  annotate("text", x = 3.5, y = .32, label = "Δ = 0.0074", size = 5) +
+  annotate("text", x = 5.5, y = .32, label = "Δ = -0.0003", size = 5) +
+  annotate("text", x = 7.5, y = .29, label = "Δ = -0.0002", size = 5) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
