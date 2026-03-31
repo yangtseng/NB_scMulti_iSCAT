@@ -93,6 +93,10 @@ VlnPlot(NB_combined_250617, features = c("nFeature_chromvar"), pt.size = 0, grou
               textsize = 5, size = 0.8, vjust = -.1) + 
   ylim(100,900) +
   theme_classic() + ylab("ChromVAR\nnFeature") + xlab("") + ggtitle("") + NoLegend() +
+  annotate("text", x = 1.5, y = 850, label = "Δ = -66.3", size = 5) +
+  annotate("text", x = 3.5, y = 850, label = "Δ = 94.8", size = 5) +
+  annotate("text", x = 5.5, y = 850, label = "Δ = 31.9", size = 5) +
+  annotate("text", x = 7.5, y = 850, label = "Δ = -48.0", size = 5) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
