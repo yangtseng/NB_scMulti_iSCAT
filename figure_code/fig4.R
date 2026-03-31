@@ -25,6 +25,20 @@ FeaturePlot(NB_combined_250617, features = c("signature_1PMID286_ADRN_all"), ord
   ggtitle("ADRN signature gene score")
 dev.off()
 
+averages <- NB_combined_250617@meta.data %>%
+  group_by(cell_line4) %>%
+  summarise(mean_MES = mean(signature_1PMID286_MES_all, na.rm = TRUE))
+# # A tibble: 8 × 2
+# cell_line4    mean_MES
+# <fct>            <dbl>
+#   1 SHSY5Y_ctrl      0.262
+# 2 SHSY5Y_treat     0.245
+# 3 SKNBE2C_ctrl     0.222
+# 4 SKNBE2C_treat    0.229
+# 5 SKNDZ_ctrl       0.215
+# 6 SKNDZ_treat      0.214
+# 7 SKNSH_ctrl       0.205
+# 8 SKNSH_treat      0.204
 ### Fig. 4B
 png('fig4b.png',
     width = 10,
