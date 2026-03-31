@@ -69,12 +69,39 @@ DefaultAssay(NB_combined) <- 'chromvar'
 
 # Calculate Total Motif-Associated Fragment Count (nCount_chromvar)
 NB_combined$nCount_chromvar <- Matrix::colSums(NB_combined@assays[["chromvar"]]$counts)
+sesoi_table <- NB_combined@meta.data %>%
+  group_by(cell_line_prefix) %>%
+  summarise(
+    mean_count = mean(nCount_chromvar, na.rm = TRUE),
+    sd_count   = sd(nCount_chromvar, na.rm = TRUE),
+    sample_size = n()
+  ) %>%
+  mutate(SESOI = 0.5 * sd_count)
 
+# 2. Calculate the Global Pooled SD (Recommended for general benchmarking)
+# This calculates the square root of the average within-group variance
+pooled_sd <- sqrt(sum((sesoi_table$sample_size - 1) * sesoi_table$sd_count^2) / 
+                    sum(sesoi_table$sample_size - 1))
+
+global_sesoi <- 0.5 * pooled_sd
 # Calculate Total Accessible Motifs Count (nFeature_chromvar)
 # The 'counts' slot is where the raw counts are stored. Counting features with >0 fragments.
 NB_combined$nFeature_chromvar <- Matrix::colSums(NB_combined@assays[["chromvar"]]$counts > 0)
+sesoi_table <- NB_combined@meta.data %>%
+  group_by(cell_line_prefix) %>%
+  summarise(
+    mean_count = mean(nFeature_chromvar, na.rm = TRUE),
+    sd_count   = sd(nFeature_chromvar, na.rm = TRUE),
+    sample_size = n()
+  ) %>%
+  mutate(SESOI = 0.5 * sd_count)
 
+# 2. Calculate the Global Pooled SD (Recommended for general benchmarking)
+# This calculates the square root of the average within-group variance
+pooled_sd <- sqrt(sum((sesoi_table$sample_size - 1) * sesoi_table$sd_count^2) / 
+                    sum(sesoi_table$sample_size - 1))
 
+global_sesoi <- 0.5 * pooled_sd
 # --- INITIAL VISUALIZATION OF CHROMVAR INDICES ---
 
 # 1. Visualize Total Fragment Count (nCount_chromvar) on UMAP
