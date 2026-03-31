@@ -51,6 +51,20 @@ FeaturePlot(NB_combined_250617, features = c("nFeature_chromvar"), order = T, co
   ggtitle("ChromVAR nFeature")
 dev.off()
 
+averages <- NB_combined_250617@meta.data %>%
+  group_by(cell_line4) %>%
+  summarise(mean_chromvar = mean(nFeature_chromvar, na.rm = TRUE))
+# # A tibble: 8 × 2
+# cell_line4    mean_chromvar
+# <fct>                 <dbl>
+#   1 SHSY5Y_ctrl            469.
+# 2 SHSY5Y_treat           402.
+# 3 SKNBE2C_ctrl           342.
+# 4 SKNBE2C_treat          437.
+# 5 SKNDZ_ctrl             324.
+# 6 SKNDZ_treat            356.
+# 7 SKNSH_ctrl             364.
+# 8 SKNSH_treat            316.
 png('fig5d.png',
     width = 10,
     height = 5,
