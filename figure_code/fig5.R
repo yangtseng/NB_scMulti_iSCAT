@@ -25,8 +25,12 @@ VlnPlot(NB_combined_250617, features = c("nCount_chromvar"), pt.size = 0, group.
                                  c("SKNDZ_ctrl",'SKNDZ_treat'),c('SKNSH_ctrl','SKNSH_treat')), 
               y_position = c(2500, 1800,1500,1500), test = 'wilcox.test',
               textsize = 5, size = 0.8, vjust = -.1) + 
-  ylim(-800,3000) +
+  ylim(-800,3200) +
   theme_classic() + ylab("ChromVAR\nnCount") + xlab("") + ggtitle("") + NoLegend() +
+  annotate("text", x = 1.5, y = 3150, label = "Δ = -390.4", size = 5) +
+  annotate("text", x = 3.5, y = 2450, label = "Δ = 347.1", size = 5) +
+  annotate("text", x = 5.5, y = 2150, label = "Δ = 120.5", size = 5) +
+  annotate("text", x = 7.5, y = 2150, label = "Δ = -120.7", size = 5) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
