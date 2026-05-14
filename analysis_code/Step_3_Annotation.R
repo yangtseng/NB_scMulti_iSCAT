@@ -37,11 +37,26 @@ NB_cellline <- NB_cellline[order(rownames(NB_cellline)),]
 corr <- cor(x = NB_cellline, y = cellLine.avg, method = c('spearman'))
 
 # Visualize correlation results
-png(filename = paste0(output_dir, "NB_heatmap_prediction.png"), width = 12, height = 9, units = "in", res = 300)
-pheatmap(corr, 
-         colorRampPalette(c('blue', 'white', 'red'))(15), 
-         main = "Cluster-to-Bulk Cell Line Correlation (Spearman)")
+p <- pheatmap(scale(corr), colorRampPalette(c('#8E9AB1','white','#D99388'))(100),
+              cellwidth = 35, cellheight = 20,
+              angle_col = 45, fontsize = 20, border_color = "white") 
+p$gtable$grobs[[3]]$gp <- gpar(lwd = 4)
+p
+
+png(
+  filename  = paste("fig3b.png", sep=""),
+  width     = 13,
+  height    = 7,
+  units     = "in",
+  res       = 300,
+)
+
+grid.newpage()
+grid.draw(p$gtable)
+
 dev.off()
+
+
 
 # NOTE: The manual assignment of cell line predictions based on the heatmap
 # requires manual review of the heatmap. The resulting vector is provided here
