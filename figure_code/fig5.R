@@ -121,7 +121,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SHSY5Y_ctrl") |NB_combined_250617$cell_line4 %in% c("SHSY5Y_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nCount") + ggtitle("Cell line: SH-SY5Y (Corr. = 0.67)") + NoLegend() +
+  xlab("ChromVAR nCount") + ylab("MES signature gene score") + ggtitle("Cell line: SH-SY5Y (Corr. = 0.67)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -145,7 +145,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNBE2C_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNBE2C_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nCount") + ggtitle("Cell line: SK-N-BE(2)C (Corr. = 0.3)") + NoLegend() +
+  xlab("ChromVAR nCount") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-BE(2)C (Corr. = 0.3)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -169,7 +169,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNDZ_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNDZ_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nCount") + ggtitle("Cell line: SK-N-DZ (Corr. = 0.1)") + NoLegend() +
+  xlab("ChromVAR nCount") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-DZ (Corr. = 0.1)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -193,7 +193,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNSH_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNSH_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nCount") + ggtitle("Cell line: SK-N-SH (Corr. = 0.05)") + NoLegend() +
+  xlab("ChromVAR nCount") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-SH (Corr. = 0.05)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -242,7 +242,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNBE2C_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNBE2C_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nFeature") + ggtitle("Cell line: SK-N-BE(2)C (Corr. = 0.28)") + NoLegend() +
+  xlab("ChromVAR nFeature") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-BE(2)C (Corr. = 0.28)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -266,7 +266,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNDZ_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNDZ_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nFeature") + ggtitle("Cell line: SK-N-DZ (Corr. = 0.07)") + NoLegend() +
+  xlab("ChromVAR nFeature") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-DZ (Corr. = 0.07)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
@@ -290,7 +290,7 @@ FeatureScatter(object = NB_combined_250617,
                cells = NB_combined_250617@assays[["RNA"]]@data@Dimnames[[2]][NB_combined_250617$cell_line4 %in% c("SKNSH_ctrl") |NB_combined_250617$cell_line4 %in% c("SKNSH_treat")],
                shuffle = T,
                cols = c('#A8D0C7','#D78D82')) + 
-  xlab("MES signature gene score") + ylab("ChromVAR nFeature") + ggtitle("Cell line: SK-N-SH (Corr. = 0.04)") + NoLegend() +
+  xlab("ChromVAR nFeature") + ylab("MES signature gene score") + ggtitle("Cell line: SK-N-SH (Corr. = 0.04)") + NoLegend() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         axis.title.x = element_text(size = 20, family = 'Arial', vjust = 0),
